@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gamify</title>
+
+    <script>
+        var tigger;
+        var piglet;
+        var pooh;
+        var bees;
+        var owl;
+        var robin;
+        var rabbit;
+        var gopher;
+        var kanga;
+        var eeyore;
+        var heffalumps;
+        var yourMission = "";
+        var yourRndStartPoint = "";
+
+        tigger = {
+            character: "Tigger",
+            // north: pooh,
+            greet: function () {
+                //console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!");
+                console.log(this.character + " greets you! :)")
+            }
+        };
+        piglet = {
+            character: "Piglet",
+            greet: function () {
+                console.log(this.character + " greets you! :)")
+            }
+        };
+        pooh = {
+            character: "Winnie the Pooh",
+            greet: function () {
+                console.log("Oh bother.");
+            }
+        };
+        bees = {
+            character: "Bees",
+            greet: function () {
+                console.log("Buzz")
+            }
+        };
+        owl = {
+            character: "Owl",
+            greet: function () {
+                console.log("Owl is very wise.")
+            }
+        };
+        robin = {
+            character: "Christopher Robin",
+            greet: function () {
+                console.log("Christopher is the only human here.")
+            }
+        };
+        rabbit = {
+            character: "Rabbit",
+            greet: function () {
+                console.log(this.character + " greets you! :)");
+            }
+        };
+        gopher = {
+            character: "Gopher",
+            greet: function () {
+                console.log("I like digging");
+            }
+        };
+        kanga = {
+            character: "Kanga",
+            greet: function () {
+                console.log("Have you seen Roo?");
+            }
+        };
+        eeyore = {
+            character: "Eeyore",
+            greet: function () {
+                console.log("Sadness abounds...");
+            }
+        };
+        heffalumps = {
+            character: "Heffalumps",
+            greet: function () {
+                console.log("What do Heffalumps do all day long?");
+            }
+        };
+        var charArray = [tigger, piglet, pooh, owl, robin, rabbit, gopher, kanga, eeyore, heffalumps];
+
+        tigger.north = pooh;
+
+        pooh.south = tigger;
+        pooh.east = bees;
+        pooh.west = piglet;
+        pooh.north = robin;
+
+        bees.west = pooh;
+        bees.north = rabbit;
+
+        piglet.east = pooh;
+        piglet.north = owl;
+
+        owl.south = piglet;
+        owl.east = robin;
+
+        robin.west = owl;
+        robin.south = pooh;
+        robin.east = rabbit;
+        robin.north = kanga;
+
+        rabbit.west = robin;
+        rabbit.south = bees;
+        rabbit.east = gopher;
+
+        gopher.west = rabbit;
+
+        kanga.south = robin;
+        kanga.north = eeyore;
+
+        eeyore.south = kanga;
+        eeyore.east = heffalumps;
+
+        heffalumps.west = eeyore;
+
+        function move(dir) {
+            if (dir == "n") {
+                if (player.location.north == null) {
+                    console.log("North is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.north;
+                    console.log("Heading north leads you to " + player.location.character + "'s house!");
+                    player.location.greet();
+                }
+            }
+            if (dir == "s") {
+                if (player.location.south == null) {
+                    console.log("South is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.south;
+                    console.log("Heading south leads you to " + player.location.character + "'s house!");
+                    player.location.greet();
+                }
+            }
+            if (dir == "e") {
+                if (player.location.east == null) {
+                    console.log("East is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.east;
+                    console.log("Heading east leads you to " + player.location.character + "'s house!");
+                    player.location.greet();
+                }
+            }
+            if (dir == "w") {
+                if (player.location.west == null) {
+                    console.log("West is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.west;
+                    console.log("Heading west leads you to " + player.location.character + "'s house!");
+                    player.location.greet();
+                }
+            }
+        }
+        function pickUp() {
+            if (player.location.character == "Bees") {
+                player.honey = true;
+                console.log("You now have honey.")
+            } else {
+                console.log("This place doesn't have honey.")
+            }
+        }
+        function drop() {
+            if (player.location.character == yourMission && player.honey == true) {
+                player.honey = false;
+                console.log("You delivered the honey!")
+            } else if (player.honey == false) {
+                console.log("You don't have honey!")
+            } else {
+                console.log("This place doesn't need honey!")
+            }
+        }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        function mission() {
+            yourMission = charArray[getRandomInt(10)].character;
+            console.log(yourMission + " needs honey.");
+        }
+        function rndStartPoint() {
+            yourRndStartPoint = charArray[getRandomInt(10)];
+            yourRndStartPointChar = yourRndStartPoint.character;
+            console.log("You are starting at: " + yourRndStartPointChar);
+            player.location = yourRndStartPoint;
+        }
+        function whereAmI() {
+            console.log("You are at " + player.location.character + "'s place.");
+        }
+        function honeyStatus() {
+            if (player.honey == true) {
+                console.log("You have honey.")
+            } else {
+                console.log("You do not have honey.")
+            }
+        }
+
+        var player = {
+            location: yourRndStartPoint,
+            honey: false
+        }
+        rndStartPoint();
+
+
+        // up, dn, left, rt, pu/drop, loc, stat
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

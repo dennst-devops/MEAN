@@ -1,0 +1,125 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "category": "General Knowledge",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "This field is sometimes known as &ldquo;The Dismal Science.&rdquo;",
+            "correct_answer": "Economics",
+            "incorrect_answers": [
+                "Philosophy",
+                "Politics",
+                "Physics"
+            ]
+        },
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Who wrote and directed the 1986 film &#039;Platoon&#039;?",
+            "correct_answer": "Oliver Stone",
+            "incorrect_answers": [
+                "Francis Ford Coppola",
+                "Stanley Kubrick",
+                "Michael Cimino"
+            ]
+        },
+        {
+            "category": "Science & Nature",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "This element, when overcome with extreme heat and pressure, creates diamonds.",
+            "correct_answer": "Carbon",
+            "incorrect_answers": [
+                "Nitrogen",
+                "Oxygen",
+                "Hydrogen"
+            ]
+        },
+        {
+            "category": "History",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In what year was the last natural case of smallpox documented?",
+            "correct_answer": "1977",
+            "incorrect_answers": [
+                "1982",
+                "1980",
+                "1990"
+            ]
+        },
+        {
+            "category": "Politics",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Which of the following Pacific Islander countries is ruled by a constitutional monarchy?",
+            "correct_answer": "Tonga",
+            "incorrect_answers": [
+                "Palau",
+                "Fiji",
+                "Kiribati"
+            ]
+        },
+        {
+            "category": "Entertainment: Cartoon & Animations",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "What was the first Disney movie to use CGI?",
+            "correct_answer": "The Black Cauldron",
+            "incorrect_answers": [
+                "Tron",
+                "Toy Story",
+                "Fantasia"
+            ]
+        },
+        {
+            "category": "Animals",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "What scientific family does the Aardwolf belong to?",
+            "correct_answer": "Hyaenidae",
+            "incorrect_answers": [
+                "Canidae",
+                "Felidae",
+                "Eupleridae"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Which of the following countries does &quot;JoJo&#039;s Bizarre Adventure: Stardust Crusaders&quot; not take place in?",
+            "correct_answer": "Philippines",
+            "incorrect_answers": [
+                "India",
+                "Pakistan",
+                "Egypt"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "According to the United States&#039; CDC, one in how many Americans die annually due to smoking?",
+            "correct_answer": "Five",
+            "incorrect_answers": [
+                "Twenty",
+                "Ten",
+                "One hundred"
+            ]
+        },
+        {
+            "category": "Sports",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Which team has won the most Stanley Cups in the NHL?",
+            "correct_answer": "Montreal Canadians",
+            "incorrect_answers": [
+                "Chicago Blackhawks",
+                "Toronto Maple Leafs",
+                "Detroit Red Wings"
+            ]
+        }
+    ]
+}

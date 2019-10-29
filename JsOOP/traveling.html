@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Traveling</title>
+
+    <script>
+        var tigger = { character: "Tigger" };
+        var piglet = { character: "Piglet" };
+        var pooh = { character: "Winnie the Pooh" };
+        var bees = { character: "Bees" };
+        var owl = { character: "Owl" };
+        var robin = { character: "Christopher Robin" };
+        var rabbit = { character: "Rabbit" };
+        var gopher = { character: "Gopher" };
+        var kanga = { character: "Kanga" };
+        var eeyore = { character: "Eeyore" };
+        var heffalumps = { character: "Heffalumps" };
+
+        tigger.north = pooh;
+
+        pooh.south = tigger;
+        pooh.east = bees;
+        pooh.west = piglet;
+        pooh.north = robin;
+
+        bees.west = pooh;
+        bees.north = rabbit;
+
+        piglet.east = pooh;
+        piglet.north = owl;
+
+        owl.south = piglet;
+        owl.east = robin;
+
+        robin.west = owl;
+        robin.south = pooh;
+        robin.east = rabbit;
+        robin.north = kanga;
+
+        rabbit.west = robin;
+        rabbit.south = bees;
+        rabbit.east = gopher;
+
+        gopher.west = rabbit;
+
+        kanga.south = robin;
+        kanga.north = eeyore;
+
+        eeyore.south = kanga;
+        eeyore.east = heffalumps;
+
+        heffalumps.west = eeyore;
+
+        var player = {
+            location: tigger
+        }
+
+        function move(dir) {
+            if (dir == "n") {
+                if (player.location.north == null) {
+                    console.log("North is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.north;
+                    console.log("Heading north leads you to " + player.location.character + "'s house!");
+                }
+            }
+            if (dir == "s") {
+                if (player.location.south == null) {
+                    console.log("South is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.south;
+                    console.log("Heading south leads you to " + player.location.character + "'s house!");
+                }
+            }
+            if (dir == "e") {
+                if (player.location.east == null) {
+                    console.log("East is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.east;
+                    console.log("Heading east leads you to " + player.location.character + "'s house!");
+                }
+            }
+            if (dir == "w") {
+                if (player.location.west == null) {
+                    console.log("West is not a valid direction from this point.")
+                }
+                else {
+                    player.location = player.location.west;
+                    console.log("Heading west leads you to " + player.location.character + "'s house!");
+                }
+            }
+        }
+        move("e");
+        move("s");
+        move("w");
+        move("n");
+        move("w");
+        move("n");
+        move("e");
+        move("e");
+        move("e");
+        move("w");
+        move("w");
+        move("n");
+        move("n");
+        move("e");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

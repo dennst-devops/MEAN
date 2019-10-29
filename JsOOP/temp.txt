@@ -1,0 +1,17 @@
+        move("n");
+
+
+var charArray = ["tigger", "piglet", "pooh", "bees", "owl", robin", "rabbit", gopher", "kanga", "eeyore", "heffalumps"]
+
+
+"tigger",
+"piglet",
+pooh",
+bees",
+owl",
+robin",
+rabbit",
+gopher",
+kanga",
+eeyore",
+heffalumps",

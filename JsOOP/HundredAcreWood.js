@@ -1,0 +1,40 @@
+var tigger = { character: "Tigger" }; 
+var piglet = { character: "Piglet"}; 
+var pooh = { character: "Winnie the Pooh" };
+var bees = { character: "Bees"}; 
+var owl = { character: "Owl"}; 
+var robin = { character: "Christopher Robin"}; 
+var rabbit = { character: "Rabbit"}; 
+var gopher = { character: "Gopher"}; 
+var kanga = { character: "Kanga"}; 
+var eeyore = { character: "Eeyore"}; 
+var heffalumps = { character: "Heffalumps"}; 
+
+tigger.north = pooh; 
+pooh.south = tigger;
+pooh.east = bees;
+pooh.west = piglet;
+pooh.north = robin;
+bees.west = pooh;
+bees.north = rabbit;
+//piglet.east = tigger.north; // possible to use
+piglet.east = pooh;
+piglet.north = owl;
+//tigger.north.west = piglet; // we can do this, but why???
+owl.south = piglet;
+owl.east = robin;
+robin.west = owl;
+robin.south = pooh;
+robin.east = rabbit;
+robin.north = kanga;
+rabbit.west = robin;
+rabbit.south = bees;
+rabbit.east = gopher;
+gopher.west = rabbit;
+kanga.south = robin;
+kanga.north = eeyore;
+eeyore.south = kanga;
+eeyore.east = heffalumps;
+heffalumps.west = eeyore;
+
+
