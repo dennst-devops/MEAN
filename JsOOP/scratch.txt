@@ -1,0 +1,26 @@
+
+var BlueNinja = new Ninja("Goemon");
+var RedNinja = new Ninja("BillG");
+BlueNinja.showStats();
+BlueNinja.drinkSake();
+RedNinja.drinkSake().drinkSake().drinkSake();
+RedNinja.showStats();
+RedNinja.kick(BlueNinja);
+BlueNinja.showStats();
+RedNinja.showStats();
+
+var BlueNinja = new Ninja("Goemon");
+BlueNinja.sayName();
+BlueNinja.showStats();
+BlueNinja.drinkSake();
+BlueNinja.showStats();
+BlueNinja.showStats();
+
+var GreenMaster = new Sensei("Master Splinter");
+GreenMaster.sayName();
+GreenMaster.showStats();
+GreenMaster.speakWisdom();
+GreenMaster.drinkSake();
+GreenMaster.showStats();
+
+c:\Users\dennst\git-repo\python_stack\hackathon\adventuregame.py

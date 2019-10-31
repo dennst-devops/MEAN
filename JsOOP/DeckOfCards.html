@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck of Cards</title>
+    <script>
+        class Card {
+            constructor(suit, name, value) {
+                this.suit = suit;
+                this.name = name;
+                this.value = value;
+            }
+            // show card - log the card's information to the console
+            showCard(card) {
+                console.log(card);
+            }
+        }
+
+
+        class Deck {
+            constructor() {
+                this.deck = [];
+                this.createDeck();
+            }
+            createDeck() {
+                var cardname;
+                this.suit = ["Spades", "Diamonds", "Hearts", "Clubs"];
+                for (var i = 0; i < this.suit.length; i++) {
+                    for (var j = 1; j <= 13; j++) {
+                        cardname = j;
+                        if (j == 1) {
+                            cardname = "Ace";
+                        } else if (j == 2) {
+                            cardname = "Two";
+                        } else if (j == 3) {
+                            cardname = "Three";
+                        } else if (j == 4) {
+                            cardname = "Four";
+                        } else if (j == 5) {
+                            cardname = "Five";
+                        } else if (j == 6) {
+                            cardname = "Six";
+                        } else if (j == 7) {
+                            cardname = "Seven";
+                        } else if (j == 8) {
+                            cardname = "Eight";
+                        } else if (j == 9) {
+                            cardname = "Nine";
+                        } else if (j == 10) {
+                            cardname = "Ten";
+                        } else if (j == 11) {
+                            cardname = "Jack";
+                        } else if (j == 12) {
+                            cardname = "Queen";
+                        } else if (j == 13) {
+                            cardname = "King";
+                        }
+                        // console.log(cardname + " of " + this.suit[i]);
+                        // this.deck.push(cardname + " of " + this.suit[i])
+                        var myCard = new Card(this.suit[i], cardname, j)
+                        // console.log(myCard)
+                        this.deck.push(myCard);
+                    }
+                }
+            }
+            // shuffle
+            shuffle() {
+                var m = this.deck.length, t, i;
+                // While there remain elements to shuffle…
+                while (m) {
+                    // Pick a remaining element…
+                    i = Math.floor(Math.random() * m--);
+                    // And swap it with the current element.
+                    t = this.deck[m];
+                    this.deck[m] = this.deck[i];
+                    this.deck[i] = t;
+                }
+                return this.deck;
+            }
+            // reset
+            reset() {
+                this.deck = [];
+                this.createDeck();
+            }
+            // deal - deal a random Card (return the Card that was dealt and remove it from the Deck)
+            dealCard() {
+                var returnCard = this.deck.pop();
+                // console.log(returnCard);
+                return returnCard;
+            }
+            // show deck
+            showDeck() {
+                for (var i = 0; i < this.deck.length; i++) {
+                    console.log(this.deck[i]);
+                }
+            }
+        }
+
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.hand = [];
+            }
+            drawCard(deck) {
+                this.hand.push(deck.dealCard());
+            }
+            showHand() {
+                for (var i = 0; i < this.hand.length; i++) {
+                    console.log(this.hand[i]);
+                }
+            }
+            discard(num) {
+                if (num > this.hand.length) {
+                    console.log("There are only " + this.hand.length + " cards in your hand, not " + num)
+                } else {
+                    console.log("+++++++++++++++++++++++++++++")
+                    for (var i = 0; i < num; i++) {
+                        this.hand.push(this.hand[i]);
+                    }
+                    for (var i = 0; i < num + 1; i++) {
+                        this.hand.shift();
+                    }
+
+
+                }
+            }
+        }
+
+        // var myDeck = new Deck();
+        // var p1 = new Player("player1");
+        // p1.drawCard(myDeck);
+        // p1.drawCard(myDeck);
+        // p1.drawCard(myDeck);
+        // p1.drawCard(myDeck);
+        // p1.drawCard(myDeck);
+        // p1.showHand();
+        // p1.discard(3);
+        // p1.showHand();
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
