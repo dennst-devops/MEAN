@@ -5,9 +5,9 @@ app.use(express.static(__dirname + "/static"));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-app.get('/', (request, response) => {
-    response.send("Hello Express");
-});
+// app.get('/', (request, response) => {
+//     response.send("Hello Express");
+// });
 app.get('/cars', (request, response) => {
     response.render('cars');
 });
