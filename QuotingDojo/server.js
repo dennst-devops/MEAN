@@ -18,9 +18,10 @@ const flash = require('express-flash');
 app.use(flash());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/quotes_db')
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
+mongoose.connect('mongodb://localhost/quotes_db')
+
 
 const QuoteSchema = new mongoose.Schema({
     name: { type: String },
