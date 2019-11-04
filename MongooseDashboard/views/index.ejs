@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All critters great and small</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        * {
+            /* border: 1px black solid; */
+            /* font-family: sans-serif; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s7">
+                <h2>All of the critters</h2>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col s2">
+                <a class="waves-effect waves-light green btn" href="/critters/new">Make an addition!</a>
+            </div>
+        </div>
+        <!-- name, age, color, maybe picture -->
+
+        <% for (var c in critters_array) { %>
+        <div class="row">
+
+            <div class="col s2">
+                <b>Name:</b> "<%= critters_array[c].name %>"
+            </div>
+            <div class="col s2">
+                <form action="critters/<%= critters_array[c]._id %>" method="GET">
+                    <button class="waves-effect waves-light gray btn">View details</button>
+                </form>
+            </div>
+            <div class="col s2">
+                <form action="critters/destroy/<%= critters_array[c]._id %>" method="POST">
+                    <button class="waves-effect waves-light red btn">Delete</button>
+                </form>
+            </div>
+            <div class="col s2">
+                <form action="critters/edit/<%= critters_array[c]._id %>" method="GET">
+                    <button class="waves-effect waves-light blue btn">Edit</button>
+                </form>
+            </div>
+
+            <hr>
+            <br>
+            <% } %>
+        </div>
+        <hr>
+    </div>
+    <% if(typeof(errors) != 'undefined' ) { %>
+    <span style="color: red">Something went wrong</span>
+    <p><%= errors%></p>
+    <% for (var e in errors) { %>
+    <h3><%= errors[e].messages %></h3>
+    <% } %>
+    <% } %>
+</body>
+
+</html>

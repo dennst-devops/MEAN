@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One critter</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        * {
+            /* border: 1px black solid; */
+            /* font-family: sans-serif; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s7">
+                <h2>One of the critters</h2>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col s2">
+                <a class="waves-effect waves-light green btn" href="/">Go Home</a>
+            </div>
+        </div>
+        <!-- name, age, color, maybe picture -->
+
+
+        <div class="row">
+            <div class="col s2">
+                <b>Name:</b> "<%= critters_array.name %>"
+            </div>
+            <div class="col s2">
+                <b>Age:</b> <%= critters_array.age %>
+            </div>
+            <div class="col s2">
+                <b>Color:</b> <%= critters_array.color %>
+            </div>
+            <hr>
+            <br>
+
+        </div>
+        <hr>
+    </div>
+    <% if(typeof(errors) != 'undefined' ) { %>
+    <span style="color: red">Something went wrong</span>
+    <p><%= errors%></p>
+    <% for (var e in errors) { %>
+    <h3><%= errors[e].messages %></h3>
+    <% } %>
+    <% } %>
+</body>
+
+</html>
