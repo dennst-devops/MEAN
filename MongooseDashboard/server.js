@@ -15,7 +15,6 @@ app.use(session({
 }));
 
 const flash = require('express-flash');
-
 app.use(flash());
 const mongoose = require('mongoose');
 // fix deprication warnings
@@ -35,7 +34,7 @@ const Critter = mongoose.model('Critter', CritterSchema);
 
 
 // POST '/critters/destroy/:id' Should delete the critter from the database by ID.
-app.post('/critters/destroy/:id', function(request, response) {
+app.post('/critters/destroy/:id', function (request, response) {
     Critter.deleteOne({ _id: request.params.id }, function (err, critter) {
         console.log("successfully deleted a critter");
         response.redirect('/');
@@ -61,7 +60,7 @@ app.post('/critters/:id', function (request, response) {
                 console.log("Error matching DB request");
             else
                 console.log('successfully updated a critter!');
-                response.redirect("/critters/" + request.params.id);
+            response.redirect("/critters/" + request.params.id);
         });
 });
 
@@ -73,17 +72,16 @@ app.get('/critters/new', (request, response) => {
 // POST '/critters' Should be the action attribute for the form in the above route (GET '/critters/new').
 app.post('/critters', (request, response) => {
     var critter = new Critter({ name: request.body.ht_name, age: request.body.ht_age, color: request.body.ht_color });
-    critter.save(function (err) {
-        if (err) {
-            console.log('error hit on update!');
-            console.log(critter.errors);
-            response.render('index', { errors: critter.errors })
-        }
-        else {
-            console.log('successfully added a critter!');
+    critter.save()
+        .then(() => response.redirect('/'))
+        .catch(err => {
+            console.log("We have an error!", err);
+            // adjust the code below as needed to create a flash message with the tag and content you would like
+            for (var key in err.errors) {
+                request.flash('registration', err.errors[key].message);
+            }
             response.redirect('/');
-        }
-    })
+        })
 });
 
 // GET '/critters/:id' Displays information about one critter.

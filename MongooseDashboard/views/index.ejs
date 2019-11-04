@@ -25,13 +25,13 @@
             </div>
         </div><br>
         <div class="row">
-            <div class="col s2">
+            <div class="col s3">
                 <a class="waves-effect waves-light green btn" href="/critters/new">Make an addition!</a>
             </div>
         </div>
         <!-- name, age, color, maybe picture -->
 
-        <% for (var c in critters_array) { %>
+        <% for  (var c in critters_array) { %>
         <div class="row">
 
             <div class="col s2">
@@ -59,6 +59,17 @@
         </div>
         <hr>
     </div>
+    <!-- tip to easily see objects printed in full instead of [object Object] -->
+    <span style="color: blue"><%- JSON.stringify(messages) %></span>
+    <!-- based on the structure of your messages, determine how to display them -->
+    <span style="color: red">
+        <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+        <h4><%= x %></h4>
+        <% } %>
+        <% } %>
+    </span>
+
     <% if(typeof(errors) != 'undefined' ) { %>
     <span style="color: red">Something went wrong</span>
     <p><%= errors%></p>
