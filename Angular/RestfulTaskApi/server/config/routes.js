@@ -2,17 +2,21 @@ const tasks = require('../controllers/tasks.js');
 
 module.exports = function (app) {
     // GET '/' will serve up the full collection of people born in 1955
-    app.get('/', tasks.findall );
+    app.get('/tasks', (req, res) => {
+        tasks.findall (req, res);
+    });
 
     // GET '/new/:name/' will add a name into the database. So adding Steve Jobs to our database, you'd type in the URL 'localhost:8000/new/Steve Jobs'
-    app.post('/new/', tasks.new );
+    app.post('/new/', (req, res) => {
+        tasks.new (req, res);
+    });
     
     // GET '/remove/:name/' will delete a name from the database.
-    app.delete('/remove/:id/', tasks.remove );
+    app.get('/remove/:id/', tasks.remove ); //works
 
     // GET '/:name' will bring up the document of that particular person.
-    app.get('/:id', tasks.display );
+    app.get('/byId/:id', tasks.display );  //works
 
     //PUT: Update a Task by ID
-    app.put('/:id', tasks.update );
+    app.post('/update/:id', tasks.update );
 }
