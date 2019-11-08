@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>routes</title>
 </head>
+
 <body>
-    <form action="/tasks" method="GET">
-      <input type="submit" value="all">
-    </form>
-    <br>
-    <form action="/new" method="post">
-      <input type="text"  name="title">
-      <input type="text"  name="description">
-      <input type="text"  name="completed" value="true">
-      <input type="submit" value="new">
-    </form>
-    <br>
-    <form action="/remove/5dc369fa0a20cb30c03fb5fb" method="GET">
-      <input type="submit" value="remove">
-    </form>
-    <br>
-    <form action="/byId/5dc36fb0755bb801f821dcf0" method="GET">
-      <input type="submit" value="by id">
-    </form>
-    <br>
-    <form action="/tasks" method="POST">
-      <input type="submit" value="update">
-    </form>
-    <br>
+  <form action="/tasks" method="GET">
+    <input type="submit" value="all">
+  </form>
+  <br>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Complete</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </tr>
+
+  <tr *ngFor="let c of content"><td>{{c._id}}</td><td>{{c.title}}</td><td>{{c.description}}</td><td>{{c.completed}}</td><td>{{c.createdAt}}</td><td>{{c.updatedAt}}</td></tr>
+</table>
+{{content}}
+<br>
+  <button (click)="onButtonClick()">Click me!</button>
 
 </body>
+
 </html>
 <router-outlet></router-outlet>
