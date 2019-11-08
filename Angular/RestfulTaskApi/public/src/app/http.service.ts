@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,11 +13,8 @@ export class HttpService {
   getTasks() {
     return this._http.get('/tasks');
   }
-  byId() {
-    // our http response is an Observable, store it in a variable
-    let tempObservable = this._http.get('/byId/:id');
-    // subscribe to the Observable and provide the code we would like to do with our data from the response
-    tempObservable.subscribe(data => console.log("Got our one task!", data));
+  byId(id) {
+    return this._http.get(`/byId/${id}`);
   }
   remove() {
     // our http response is an Observable, store it in a variable

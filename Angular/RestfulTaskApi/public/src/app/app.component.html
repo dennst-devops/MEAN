@@ -13,22 +13,33 @@
     <input type="submit" value="all">
   </form>
   <br>
-  <table>
+  <button (click)="onButtonClick()">Click me to get all tasks!</button> <br><br>
+  <table *ngIf="content!=nul">
     <tr>
-      <th>ID</th>
       <th>Title</th>
-      <th>Description</th>
-      <th>Complete</th>
-      <th>Created</th>
-      <th>Updated</th>
+      <th>Get details</th>
     </tr>
 
-  <tr *ngFor="let c of content"><td>{{c._id}}</td><td>{{c.title}}</td><td>{{c.description}}</td><td>{{c.completed}}</td><td>{{c.createdAt}}</td><td>{{c.updatedAt}}</td></tr>
-</table>
-{{content}}
-<br>
-  <button (click)="onButtonClick()">Click me!</button>
+    <tr *ngFor="let c of content">
+      <td>{{c.title}}</td>
+      <td><button (click)="onButtonClickParams(c._id)">Click me for details!</button></td>
+    </tr>
+  </table>
+  <br><br><br><hr>
 
+  <table *ngIf="details!=nul">
+      <tr>
+        <th>Title</th>
+        <th>Desc</th>
+        <th>Completed</th>
+        <th>Update</th>
+        <th>Created</th>
+      </tr>
+  
+      <tr *ngIf="details!=nul">
+        <td>{{details.title}}</td><td>{{details.description}}</td><td>{{details.completed}}</td><td>{{details.updatedAt}}</td><td>{{details.createdAt}}</td>
+      </tr>
+    </table>
 </body>
 
 </html>
