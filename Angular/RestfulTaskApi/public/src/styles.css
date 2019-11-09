@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-table, th, td {
-    border: 1px solid black;
-  }
+
+  .col
+{
+  border:1px solid black;
+     margin-top:10px; 
+}

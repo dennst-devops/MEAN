@@ -6,40 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>routes</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 
 <body>
-  <form action="/tasks" method="GET">
-    <input type="submit" value="all">
-  </form>
-  <br>
-  <button (click)="onButtonClick()">Click me to get all tasks!</button> <br><br>
-  <table *ngIf="content!=nul">
-    <tr>
-      <th>Title</th>
-      <th>Get details</th>
-    </tr>
+  <div class="container">
 
-    <tr *ngFor="let c of content">
-      <td>{{c.title}}</td>
-      <td><button (click)="onButtonClickParams(c._id)">Click me for details!</button></td>
-    </tr>
-  </table>
-  <br><br><br><hr>
+    <h3>New Task</h3>
+    <form (submit)="onSubmit()">
+      <!-- use the json pipe to see how newTask changes in real time -->
+      <input type="text" name="title" [(ngModel)]="newTask.title" />
+      <input type="text" name="description" [(ngModel)]="newTask.description" />
+      <label>
+      <input type="checkbox">
+      <span> <b> Is Completed </b></span> <br><br>
+    </label>
+      <input type="submit" value="Create Task" />
+    </form>
+    <p> {{ myNew | json }} </p>
+    <br>
 
-  <table *ngIf="details!=nul">
-      <tr>
-        <th>Title</th>
-        <th>Desc</th>
-        <th>Completed</th>
-        <th>Update</th>
-        <th>Created</th>
-      </tr>
-  
-      <tr *ngIf="details!=nul">
-        <td>{{details.title}}</td><td>{{details.description}}</td><td>{{details.completed}}</td><td>{{details.updatedAt}}</td><td>{{details.createdAt}}</td>
-      </tr>
-    </table>
+
+    <!-- <button (click)="onButtonClick()">Click me to get all tasks!</button> <br><br> -->
+    <div *ngIf="content!=nul" class="row">
+      <div class="col s4">
+        <table *ngIf="content!=nul">
+          <tr *ngFor="let c of content">
+            <td>{{c.title}}</td>
+            <td>{{c.description}}</td>
+            <td><button (click)="onButtonClickParamsEdit(c._id)">Edit</button></td>
+            <td><button (click)="onButtonClickParamsDelete(c._id)">Delete</button></td>
+          </tr>
+        </table>
+      </div>
+      <div *ngIf="showEdit">
+        <div class="col s5">
+          <form (submit)="onSubmitEdit()">
+            <p>{{details._id}}</p>
+            <input type="text" name="title" [(ngModel)]="editTask.title">
+            <input type="text"  name="description" [(ngModel)]="editTask.description" >
+            <label>
+            <input type="checkbox"  checked="{{details.completed}}">
+            <span> <b> Is Completed </b></span>
+            <br><br>
+          </label>
+            <input type="submit" value="Update Task" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

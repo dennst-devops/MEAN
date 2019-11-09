@@ -18,5 +18,5 @@ module.exports = function (app) {
     app.get('/byId/:id', tasks.display );  //works
 
     //PUT: Update a Task by ID
-    app.post('/update/:id', tasks.update );
+    app.put('/update/:id', tasks.update );
 }

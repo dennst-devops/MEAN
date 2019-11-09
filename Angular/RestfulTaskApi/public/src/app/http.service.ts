@@ -16,20 +16,18 @@ export class HttpService {
   byId(id) {
     return this._http.get(`/byId/${id}`);
   }
-  remove() {
-    // our http response is an Observable, store it in a variable
-    // var myObj = {"_id": "5dc369fa0a20cb30c03fb5fb"}
-    let tempObservable = this._http.delete('/remove/:id');
-    // subscribe to the Observable and provide the code we would like to do with our data from the response
-    tempObservable.subscribe(data => console.log("Remove our task!", data));
+  remove(id) {
+    return this._http.get(`/remove/${id}`);
   }
-  myNew() {
-    var myObj = {
-    }
+  myNew(newtask) {
+    return this._http.post('/new', newtask)
     // our http response is an Observable, store it in a variable
-    let tempObservable = this._http.post('/new', myObj);
+    // let tempObservable = this._http.post('/new', myObj);
     // subscribe to the Observable and provide the code we would like to do with our data from the response
-    tempObservable.subscribe(data => console.log("New our task!", data));
+    // tempObservable.subscribe(data => console.log("New our task!", data));
+  }
+  myEdit(editTask){
+    return this._http.put('/update', editTask)
   }
 
 }
