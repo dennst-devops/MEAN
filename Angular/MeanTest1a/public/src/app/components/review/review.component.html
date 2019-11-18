@@ -1,0 +1,17 @@
+<h2>Reviews for {{thing.restaurantname}}</h2>
+<div class="row">
+        <button class="btn btn-primary btn-sm" [routerLink]="['/newreview']">New review</button>
+    </div>
+    <table class="table-bordered table-striped">
+            <thead>
+                <th>Customer</th>
+                <th>Stars</th>
+                <th>Description</th>
+            </thead>
+            <tr *ngFor="let thing of allReviews">
+                    <td>{{thing.name}}</td>
+                    <td>{{thing.stars}}</td>
+                    <td>{{thing.review}}</td>
+                </tr>
+            </table>
+<a href="/restaurants" class="btn btn-danger btn-sm">Home</a>
