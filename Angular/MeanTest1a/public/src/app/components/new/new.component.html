@@ -4,13 +4,12 @@
     <!-- <p>Restaurant name:</p> -->
     <!-- <input class="form-control col-sm-5" type="text" name="restaurantname" [(ngModel)]="restaurant.restaurantname" minlength="3"
         required #name="ngModel"> -->
-    <label for="restaurant.name">Name: </label>
-    <input type="text" name="makeRestaurant.name" [(ngModel)]="makeRestaurant.name" required minlength="3"
+    <label for="restaurant.restaurantname">Name: </label>
+    <input type="text" name="makeRestaurant.restaurantname" [(ngModel)]="makeRestaurant.restaurantname" required minlength="3"
         #name="ngModel">
 
     <br>
-    <div class="col-sm-6 offset-2 text-danger" *ngIf="submitted && nameError">Restaurant names must contain at least 3
-        chars.</div>
+    <div class="col-sm-6 offset-2 text-danger" *ngIf="submitted && nameError">Restaurant name must contain at least 3 chars.</div>
     <br>
     <!-- <p>Cusine:</p>
     <input type="text" name="cusine"> -->

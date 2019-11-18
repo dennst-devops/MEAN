@@ -18,16 +18,17 @@ const ReviewSchema = new mongoose.Schema({
 }, { timestamps: true })
 const Review = mongoose.model('review', ReviewSchema);
 
-// const ThingSchema = new mongoose.Schema({
-//     restaurantname: {type: String, required: [true, "Restaurant name cannont be blank"], minlength: [3, "Restaurant must have at least 3 characters"]},
-//     cuisine: {type: String, required: [true, "Cuisine cannont be blank"], minlength: [3, "Cuisine must have at least 3 characters"]},
-//     reviews: [ReviewSchema],
-// }, {timestamps: true})
 const ThingSchema = new mongoose.Schema({
-    restaurantname: {type: String},
-    cuisine: {type: String},
+    restaurantname: {type: String, required: [true, "Restaurant name cannont be blank"], minlength: [3, "Restaurant must have at least 3 characters"]},
+    // restaurantname: {type: String, required: true, minlength: 3},
+    cuisine: {type: String, required: [true, "Cuisine cannont be blank"], minlength: [3, "Cuisine must have at least 3 characters"]},
     reviews: [ReviewSchema],
 }, {timestamps: true})
+// const ThingSchema = new mongoose.Schema({
+//     restaurantname: {type: String},
+//     cuisine: {type: String},
+//     reviews: [ReviewSchema],
+// }, {timestamps: true})
 
 const Thing = mongoose.model('things', ThingSchema);
 

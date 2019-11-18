@@ -16,14 +16,12 @@ export class NewComponent implements OnInit {
   constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
-    this.makeRestaurant = { name: "", cuisine: "" }
+    this.makeRestaurant = { restaurantname: "", cuisine: "" }
   }
 
   createThing() {
-    console.log("++++++++++++++++++++++");
-    console.log(this.makeRestaurant.name);
     this.submitted = true;
-    if (this.makeRestaurant.name < 3) {
+    if (this.makeRestaurant.restaurantname < 3) {
       this.nameError = true;
     }
     if (this.makeRestaurant.cuisine < 3) {

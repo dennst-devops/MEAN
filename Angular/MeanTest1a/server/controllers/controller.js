@@ -25,12 +25,12 @@ module.exports = {
     },
     createThing: (req, res) => {
         console.log(req.body, "Controller")
-        Thing.create(req.body, {runValidators: true})
+        Thing.create(req.body)
             .then(data => res.json({message: "success", results: data}))
             .catch(err => res.json({message: "error", results: err}))
     },
     editThing: (req, res) => {
-        Thing.findOneAndUpdate({_id: req.params.id}, req.body, {runValidators: true})
+        Thing.updateOne({_id: req.params.id}, req.body, {runValidators: true})
             .then(data => res.json({message: "success", results: data}))
             .catch(err => res.json({message: "error", results: err}));
     },
@@ -40,7 +40,8 @@ module.exports = {
             .catch(err => res.json({message: "error", results: err}));
     },
     createReview: (req, res) => {
-        Thing.findOneAndUpdate({_id: req.params.id}, {$push: {reviews:{name: req.body.name, review: req.body.review, rating: req.body.rating}}}, {runValidators: true})
+        console.log(req.body);
+        Thing.updateOne({_id: req.params.id}, {$push: {reviews: req.body}}, {runValidators: true})
             .then(data => res.json({message: "success", results: data}))
             .catch(err => res.json({message: "error", results: err}))
     },

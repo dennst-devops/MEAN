@@ -9,9 +9,9 @@ import { NewreviewComponent } from './components/newreview/newreview.component';
 const routes: Routes = [
   {path: 'restaurants', component: HomeComponent},
   {path: 'new', component: NewComponent},
-  {path: 'edit/:id', component: EditComponent},
-  {path: 'review/:id', component: ReviewComponent},
-  {path: 'newreview/:id', component: NewreviewComponent},
+  {path: 'restaurants/:id/edit', component: EditComponent},
+  {path: 'restaurants/:id', component: ReviewComponent},
+  {path: 'restaurants/:id/review', component: NewreviewComponent},
   {path: '', pathMatch: 'full', redirectTo: '/restaurants'}
 ];
 

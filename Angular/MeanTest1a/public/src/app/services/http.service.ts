@@ -25,7 +25,7 @@ export class HttpService {
     return this.http.get(`/api/${id}/reviews`);
   }
   createNewReview(id, reviewrestaurant){
-    return this.http.post(`/api/things/${id}/createReview`, reviewrestaurant);
+    return this.http.put(`/api/things/${id}/createReview`, reviewrestaurant);
   }
   deleteRestaurant(id){
     return this.http.delete(`/api/things/${id}/deleteThing`);

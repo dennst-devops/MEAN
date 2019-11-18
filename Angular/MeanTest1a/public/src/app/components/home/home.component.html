@@ -12,8 +12,8 @@
             <td>{{thing.restaurantname}}</td>
             <td>{{thing.cuisine}}</td>
             <td>
-                <button class="btn btn-success btn-sm" [routerLink]="['/review', thing._id]">Read reviews</button>&nbsp;&nbsp;
-                <button class="btn btn-info btn-sm" [routerLink]="['/edit' , thing._id]">Update</button>&nbsp;&nbsp;
+                <button class="btn btn-success btn-sm" [routerLink]="['/restaurants', thing._id]">Read reviews</button>&nbsp;&nbsp;
+                <button class="btn btn-info btn-sm" [routerLink]="['/restaurants' , thing._id, 'edit']">Update</button>&nbsp;&nbsp;
                 <button class="btn btn-danger btn-sm" (click) = "deleteThisRestaurant(thing._id)">Delete</button>
             </td>
         </tr>
