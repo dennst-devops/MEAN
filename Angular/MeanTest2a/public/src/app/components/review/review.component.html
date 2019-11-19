@@ -1,0 +1,17 @@
+<h2>Product Details</h2>
+<!-- showRestaurantReviews.restaurantname -->
+<div class="row">
+    <div class="col-sm-2">Name</div>
+    <div class="col-sm-5">{{showRestaurantReviews.name}}</div>
+</div>
+<div class="row">
+    <div class="col-sm-2">Qty</div>
+    <div class="col-sm-5">{{showRestaurantReviews.quantity}}</div>
+</div>
+<div class="row">
+    <div class="col-sm-2">Price</div>
+    <div class="col-sm-5">${{showRestaurantReviews.price}}</div>
+</div>
+<br>
+&nbsp;<a href="/restaurants" class="btn btn-info btn-sm">Back</a>&nbsp;&nbsp;&nbsp;
+<button class="btn btn-danger btn-sm" (click)="deleteThisRestaurant(showRestaurantReviews._id)">Delete</button>
